@@ -14,7 +14,7 @@ coverage
 
 # Dependency directory
 node_modules/*
-!node_modules/src
+!node_modules/lib
 
 # npm cache directory
 .npm
