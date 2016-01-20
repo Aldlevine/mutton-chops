@@ -11,6 +11,6 @@ var handler = new htmlparser.DefaultHandler(function(err, dom){
 
 var parser = new htmlparser.Parser(handler);
 
-fs.readFile('./playground-templates.hbs', function(err, html){
+fs.readFile('./playground-templates.mutton', function(err, html){
   parser.parseComplete(html);
 });
