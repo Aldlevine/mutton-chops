@@ -1,0 +1,34 @@
+<!-- BEGIN: Main -->
+{{# $template({name: 'main', context: 'ctx'}) }}
+  <div class="test">
+    {{# $each({collection: ctx.children, item: 'item', key: 'i', animate: 'data-anim-state'}) }}
+      <label>
+        {{ item.name }}:
+        <input type="text" $on:input:keypress:keyup="$update(item.value)" value="{{ item.value }}" />
+      </label>
+    {{/ $each }}
+  </div>
+  {{ $render({data: ctx, template: 'post-loop'}) }}
+{{/ $template }}
+<!-- END: Main -->
+
+<!-- Begin: PostLoop -->
+{{# $template({name: 'post-loop', context: 'ctx', root: 'root'}) }}
+  {{# $each({collection: ctx.posts, item: 'post', key: 'i'}) }}
+    <div class="post">
+      <p>name: {{post.user.name}}</p>
+      <p>{{post.content}}</p>
+      <p>
+        <a class="button like" $on:click="post.like()"></a>
+        <a class="button comment" $on:click="post.comment()"></a>
+        {{# $if(post.user.id == root.user.id) }}
+          <a class="button delete" $on:click="post.delete()"></a>
+        {{/ $if }}
+      </p>
+      {{# $if(post.posts && post.posts.length > 0) }}
+        {{ $render({data: post, template: 'post-loop'}) }}
+      {{/ $if }}
+    </div>
+  {{/ $each }}
+{{/ $template }}
+<!-- END: PostLoop -->

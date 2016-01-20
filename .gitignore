@@ -1,0 +1,23 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+
+# Coverage Tools
+lib-cov
+coverage
+
+# Dependency directory
+node_modules/*
+!node_modules/src
+
+# npm cache directory
+.npm
+
+# REPL history
+.node_repl_history
