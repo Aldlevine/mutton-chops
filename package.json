@@ -4,7 +4,8 @@
   "description": "Another template library, under construction",
   "main": "lib/mutton-chops.js",
   "scripts": {
-    "test": "mocha test/test.js"
+    "test": "mocha test/test.js",
+    "docs": "jsdoc -r src -d documentation"
   },
   "bin": {
     "mutton": "./bin/mutton.js"
@@ -16,7 +17,9 @@
   "author": "Aaron Levine",
   "license": "MIT",
   "homepage": "https://github.com/aldlevine/mutton-chops#readme",
-  "devDependencies": {},
+  "devDependencies": {
+    "jsdoc": "^3.4.0"
+  },
   "dependencies": {
     "htmlparser": "^1.7.7",
     "lodash": "^4.0.0",
