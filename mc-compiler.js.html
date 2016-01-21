@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: mc-utils.js</title>
+    <title>JSDoc: Source: mc-compiler.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: mc-utils.js</h1>
+    <h1 class="page-title">Source: mc-compiler.js</h1>
 
     
 
@@ -27,57 +27,48 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>var _ = require('lodash')
+  , htmlparser = require('htmlparser')
+  , MCUtils = require('src/mc-utils')
 ;
 
 module.exports = (function(){
 
   /**
-    @namespace MCUtils
+  * @class MCCompiler
+  * @param {Object|Function} opts
   **/
-  MCUtils = {};
-
-  /**
-  * Takes an object of defaults and an object of options or a function that sets the options to 'this'
-  * @function MCUtils.defaults
-  * @param {Object} defs - An object of defaults
-  * @param {Object|Function} opts - An object of options, or a function
-  * @returns {Object}
-  *
-  * @example
-  * // uses an object as the options
-  * // returns {a: 'one', b: 2, c: {d: 3, e: 'four'}}
-  * MCUtils.defaults({a: 1, b: 2, c: {d: 3, e: 4}}, {a: 'one', c: {e: 'four'}})
-  *
-  * @example
-  * // uses a function to set the options
-  * // returns {a: 'one', b: 2, c: {d: 3, e: 'four'}}
-  * MCUtils.defaults({a: 1, b: 2, c: {d: 3, e: 4}}, function(){
-  *   this.a = 'one';
-  *   this.c.e = 'four';
-  * })
-  **/
-  MCUtils.defaults = function (defs, opts)
+  function MCCompiler(opts)
   {
-    if( !_.isObject(defs) )
-    {
-      throw(new Error('MCUtils.defaults: expected arg[0] opts be object-like'));
-    }
 
-    if( _.isFunction(opts) )
-    {
-      opts.call(_.cloneDeep(defs));
-    }
-    else if( _.isObject(opts) )
-    {
-      _.defaults(defs, opts)
-    }
-    else
-    {
-      throw(new Error("MCUtils.defauts: expected arg[1] opts be object-like or function"));
-    }
   }
 
-  return MCUtils;
+  /**
+  * @function MCCompiler#compileString
+  * @param {string} str
+  * @returns {MCRenderable[]}
+  *
+  * @TODO Build method
+  * @TODO Write unit test
+  **/
+  MCCompiler.prototype.compileString = function (str)
+  {
+
+  }
+
+  /**
+  * @function MCCompiler#compileFile
+  * @param {string} fileName
+  * @returns {MCRenderable[]}
+  *
+  * @TODO Build method
+  * @TODO Write unit test
+  **/
+  MCCompiler.prototype.compileFile = function (fileName)
+  {
+
+  }
+
+  return MCCompiler;
 
 })();
 </code></pre>

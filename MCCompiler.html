@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: MCParser</title>
+    <title>JSDoc: Class: MCCompiler</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Class: MCParser</h1>
+    <h1 class="page-title">Class: MCCompiler</h1>
 
     
 
@@ -28,7 +28,7 @@
 
 <header>
     
-        <h2>MCParser</h2>
+        <h2>MCCompiler</h2>
         
     
 </header>
@@ -40,7 +40,7 @@
 
     
 
-    <h4 class="name" id="MCParser"><span class="type-signature"></span>new MCParser<span class="signature">(opts)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="MCCompiler"><span class="type-signature"></span>new MCCompiler<span class="signature">(opts)</span><span class="type-signature"></span></h4>
 
     
 
@@ -139,7 +139,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="mc-parser.js.html">mc-parser.js</a>, <a href="mc-parser.js.html#line8">line 8</a>
+        <a href="mc-compiler.js.html">mc-compiler.js</a>, <a href="mc-compiler.js.html#line8">line 8</a>
     </li></ul></dd>
     
 
@@ -188,15 +188,165 @@
 
     
 
-    <h4 class="name" id="generateMCDOM"><span class="type-signature"></span>generateMCDOM<span class="signature">(str)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+    <h4 class="name" id="compileFile"><span class="type-signature"></span>compileFile<span class="signature">(fileName)</span><span class="type-signature"> &rarr; {Array.&lt;MCRenderable>}</span></h4>
 
     
 
 
 
-<div class="description">
-    Creates an object containing the MuttonChops hierarchy.Follows HTML hierarchy, but takes it a step further with MC syntax
-</div>
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>fileName</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="mc-compiler.js.html">mc-compiler.js</a>, <a href="mc-compiler.js.html#line30">line 30</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+    <dt class="tag-todo">To Do:</dt>
+    <dd class="tag-todo">
+        <ul>
+            <li>Build method</li>
+        
+            <li>Write unit test</li>
+        </ul>
+    </dd>
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array.&lt;MCRenderable></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="compileString"><span class="type-signature"></span>compileString<span class="signature">(str)</span><span class="type-signature"> &rarr; {Array.&lt;MCRenderable>}</span></h4>
+
+    
+
+
 
 
 
@@ -288,7 +438,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="mc-parser.js.html">mc-parser.js</a>, <a href="mc-parser.js.html#line17">line 17</a>
+        <a href="mc-compiler.js.html">mc-compiler.js</a>, <a href="mc-compiler.js.html#line17">line 17</a>
     </li></ul></dd>
     
 
@@ -331,7 +481,7 @@
     </dt>
     <dd>
         
-<span class="param-type">Object</span>
+<span class="param-type">Array.&lt;MCRenderable></span>
 
 
     </dd>
