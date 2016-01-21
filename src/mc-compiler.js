@@ -1,6 +1,6 @@
 var _ = require('lodash')
-  , htmlparser = require('htmlparser')
   , MCUtils = require('src/mc-utils')
+  , MCParser = require('src/mc-parser')
 ;
 
 module.exports = (function(){
