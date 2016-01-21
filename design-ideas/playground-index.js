@@ -1,6 +1,6 @@
-var TE = require('template-engine')
+var MuttonChops = require('mutton-chops/browser')
   , templates = require('src/scripts/templates')
-  , te = new TE(templates)
+  , mc = new MuttonChops({templates: templates})
   , app = require('src/scripts/app')
 ;
 
@@ -8,5 +8,5 @@ window.addEventListener('ready', main);
 
 function main(e)
 {
-  te.render( app, document.documentElement );
+  mc.render( app, document.documentElement );
 }
