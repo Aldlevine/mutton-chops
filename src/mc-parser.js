@@ -26,7 +26,7 @@ module.exports = (function(){
   * @TODO Write unit test
   **/
   MCParser.prototype.generateMCDOM = function (str) {
-    
+
   };
 
 })();

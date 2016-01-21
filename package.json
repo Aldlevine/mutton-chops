@@ -5,7 +5,8 @@
   "main": "lib/mutton-chops.js",
   "scripts": {
     "test": "mocha test/test.js",
-    "docs": "jsdoc -r src -d documentation"
+    "docs": "jsdoc -r src -d documentation",
+    "docs-publish": "git subtree push --prefix documentation origin gh-pages"
   },
   "bin": {
     "mutton": "./bin/mutton.js"
@@ -18,7 +19,8 @@
   "license": "MIT",
   "homepage": "https://github.com/aldlevine/mutton-chops#readme",
   "devDependencies": {
-    "jsdoc": "^3.4.0"
+    "jsdoc": "^3.4.0",
+    "mocha": "^2.3.4"
   },
   "dependencies": {
     "htmlparser": "^1.7.7",

@@ -1,6 +1,6 @@
 var assert = require('assert')
   , _ = require('lodash')
-  , MCUtils = require('lib/mc-utils')
+  , MCUtils = require('src/mc-utils')
 ;
 
 describe("MCUtils#defaults", function(){
