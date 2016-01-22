@@ -32,3 +32,5 @@
   {{/ $each }}
 {{/ $template }}
 <!-- END: PostLoop -->
+
+{{ testChunk + '\}\}' }}

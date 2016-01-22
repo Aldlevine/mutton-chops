@@ -37,11 +37,15 @@ module.exports = (function(){
 
     if( _.isFunction(opts) )
     {
-      opts.call(_.cloneDeep(defs));
+      var clone = _.cloneDeep(defs)
+      opts.call(clone);
+      return clone;
     }
     else if( _.isObject(opts) )
     {
-      _.defaults(defs, opts)
+      var clone = _.cloneDeep(defs);
+      _.merge(clone, opts);
+      return clone;
     }
     else
     {

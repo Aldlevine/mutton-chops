@@ -20,13 +20,49 @@ module.exports = (function(){
   *
   * @function MCParser#generateMCDOM
   * @param {string} str
-  * @returns {Object}
+  * @returns {Object|Object[]}
   *
   * @TODO Build method
   * @TODO Write unit test
   **/
   MCParser.prototype.generateMCDOM = function (str) {
 
+  };
+
+  /**
+  * Parses a DOM text node value into a MCDOM hierarchy
+  *
+  * @function MCParser#parseTextNode
+  * @param {string} str
+  * @returns {Object|Object[]}
+  *
+  * @TODO Build method
+  * @TODO Write unit test
+  **/
+  MCParser.prototype.parseTextNode = function (str) {
+    var charBuf = str.split('')
+      , charLast = null
+      , charCur
+      , isInMC = false
+      , chunkCur = ''
+      , chunks = []
+    ;
+
+    while(charCur = charBuf.shift())
+    {
+      if( !isInMC )
+      {
+        if( charCur == '{' && charLast == '{' )
+        {
+          // Found Beginning of an MC
+          isInMC = true;
+          if( chunkCur.length ) chunks.push(chunkCur)
+          chunkCur = '';
+          continue;
+        }
+
+      }
+    }
   };
 
 })();

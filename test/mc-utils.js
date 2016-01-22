@@ -4,28 +4,31 @@ var assert = require('assert')
 ;
 
 describe("MCUtils#defaults", function(){
-  var defaults = {a: 1, b: 2, c: {a: [1,2,3], b: /hello/g}, d: function(){}}
+  var testFn = function(){}
+    , defaults = {a: 1, b: 2, c: {a: [1,2,3], b: /hello/g}, d: testFn}
     , objOpts = {a: 'a', c: {b: /moot/gi}}
     , fnOpts = function()
       {
         this.a = 'a';
-        this.c = {
-          b: /moot/gi
-        };
+        this.c.b = /moot/gi;
       }
-    , expected = {a: 'a', b: 2, c: {a: [1,2,3], b: /moot/gi}, d: function(){}}
+    , expected = {a: 'a', b: 2, c: {a: [1,2,3], b: /moot/gi}, d: testFn}
   ;
 
   it('should properly copy defaults onto object', function(){
-    assert(_.isEqual(MCUtils.defaults(defaults, objOpts)));
+    assert(_.isEqual(MCUtils.defaults(defaults, objOpts), expected));
   });
 
   it('should properly overwite defaults with function', function(){
-    assert(_.isEqual(MCUtils.defaults(defaults, fnOpts)));
+    assert(_.isEqual(MCUtils.defaults(defaults, fnOpts), expected));
   });
 
   it('should not mutate original defaults with function', function(){
     assert(MCUtils.defaults(defaults, fnOpts) != defaults);
+  });
+
+  it('should not mutate original options with defaults', function(){
+    assert(MCUtils.defaults(defaults, objOpts) != objOpts);
   });
 
   it('should throw error if defaults are not an object', function(){
