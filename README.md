@@ -1,6 +1,6 @@
 # Mutton Chops
 #### _Not Yet Usable_
-<br/>
+
 [![Build Status](https://travis-ci.org/Aldlevine/mutton-chops.svg?branch=master)](https://travis-ci.org/Aldlevine/mutton-chops)
 
 A bi-directional template library with Mustache like syntax, but taking design concepts from Knockout and Underscore templates.
