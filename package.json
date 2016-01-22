@@ -1,6 +1,6 @@
 {
   "name": "mutton-chops",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Another template library, under construction",
   "main": "lib/mutton-chops.js",
   "scripts": {
