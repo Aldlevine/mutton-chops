@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>DocStrap Namespace: MCUtils</title>
+	<title>DocStrap Source: ast/mc-node.js</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -64,300 +64,62 @@
 <div class="row">
 
 	
-	<div class="col-md-8">
+	<div class="col-md-12">
 	
 		<div id="main">
 			
 
-	<h1 class="page-title">Namespace: MCUtils</h1>
+		<h1 class="page-title">Source: ast/mc-node.js</h1>
+    
 <section>
-
-<header>
-    
-        <h2>
-        MCUtils
-        </h2>
-        
-    
-</header>
-
-
-<article>
-    <div class="container-overview">
-    
-        
-
-        
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="mc-utils.js.html">mc-utils.js</a>,
-				 <a href="mc-utils.js.html#sunlight-1-line-6">line 6</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-        
-    
-    </div>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <h3 class="subsection-title">Methods</h3>
-
-        <dl>
-            
-<hr>
-<dt>
-    <h4 class="name" id=".defaults"><span class="type-signature">&lt;static> </span>defaults(defs, opts)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Takes an object of defaults and an object of options or a function that sets the options to 'this'</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>defs</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>An object of defaults</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>opts</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-|
-
-<span class="param-type">function</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>An object of options, or a function</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="mc-utils.js.html">mc-utils.js</a>,
-				 <a href="mc-utils.js.html#sunlight-1-line-11">line 11</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Object</span>
-
-
-
-    </dd>
-</dl>
-
-
-        
-
-    
-        <h5>Examples</h5>
-        
-    <pre class="sunlight-highlight-javascript">// uses an object as the options// returns {a: &#x27;one&#x27;, b: 2, c: {d: 3, e: &#x27;four&#x27;}}MCUtils.defaults({a: 1, b: 2, c: {d: 3, e: 4}}, {a: &#x27;one&#x27;, c: {e: &#x27;four&#x27;}})</pre>
-
-    <pre class="sunlight-highlight-javascript">// uses a function to set the options// returns {a: &#x27;one&#x27;, b: 2, c: {d: 3, e: &#x27;four&#x27;}}MCUtils.defaults({a: 1, b: 2, c: {d: 3, e: 4}}, function(){  this.a = &#x27;one&#x27;;  this.c.e = &#x27;four&#x27;;})</pre>
-
-
-    
-</dd>
-
-        </dl>
-    
-
-    
-
-    
-</article>
-
+    <article>
+        <pre
+            class="sunlight-highlight-javascript linenums">module.exports = (function(){
+
+  /**
+   * A Mutton Chops Node
+   * @class MCNode
+   * @param {Object|Function} opts
+   */
+  function MCNode(opts)
+  {
+    var opts = MCUtils.defaults({
+      value: null,
+      children: []
+    }, opts);
+
+    /** @member MCNode#value {string|MCExpression} The MCNode's value **/
+    this.value = opts.value;
+
+    /** @member MCNode#children {MCNode[]} An array of child nodes **/
+    this.children = opts.children;
+  }
+
+  /**
+   * Add a child node to this node
+   * @method MCNode#addChild - Add a child node to this node
+   * @param {MCNode} child - The child node to add
+   * @returns {MCNode} this
+   */
+  MCNode.prototype.addChild = function (child) {
+    if( !(child instanceof MCNode) )
+    {
+      throw(new Error("MCUtils#addChild: expected arg[0] child to be MCNode"));
+    }
+    var index = this.children.indexOf(child);
+    if( index >= 0 ) this.children.splice(index, 1);
+    this.children.push(child);
+
+    return this;
+  };
+
+  return MCNode;
+
+})();
+</pre>
+    </article>
 </section>
+
 
 
 
@@ -367,10 +129,6 @@
 
 	<div class="clearfix"></div>
 
-	
-		<div class="col-md-3">
-			<div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md"></div>
-		</div>
 	
 
 </div>

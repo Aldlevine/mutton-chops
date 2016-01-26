@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>DocStrap Class: MCChunk</title>
+	<title>DocStrap Class: MCRenderExpression</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -69,13 +69,13 @@
 		<div id="main">
 			
 
-	<h1 class="page-title">Class: MCChunk</h1>
+	<h1 class="page-title">Class: MCRenderExpression</h1>
 <section>
 
 <header>
     
         <h2>
-        MCChunk
+        MCRenderExpression
         </h2>
         
     
@@ -88,12 +88,16 @@
         
 <hr>
 <dt>
-    <h4 class="name" id="MCChunk"><span class="type-signature"></span>new MCChunk(data)</h4>
+    <h4 class="name" id="MCRenderExpression"><span class="type-signature"></span>new MCRenderExpression(opts)</h4>
     
     
 </dt>
 <dd>
 
+    
+    <div class="description">
+        <p>A Mutton Chops render expression</p>
+    </div>
     
 
     
@@ -127,13 +131,16 @@
 
         <tr>
             
-                <td class="name"><code>data</code></td>
+                <td class="name"><code>opts</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">Object</span>
+|
+
+<span class="param-type">function</span>
 
 
 
@@ -144,7 +151,7 @@
 
             
 
-            <td class="description last"><p>The raw data to be included in the MCChunk</p></td>
+            <td class="description last"></td>
         </tr>
 
     
@@ -188,8 +195,8 @@
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="mc-chunk.js.html">mc-chunk.js</a>,
-				 <a href="mc-chunk.js.html#sunlight-1-line-3">line 3</a>
+				<a href="ast_mc-render-expression.js.html">ast/mc-render-expression.js</a>,
+				 <a href="ast_mc-render-expression.js.html#sunlight-1-line-7">line 7</a>
 			</li>
 		</ul>
 	</dd>
@@ -222,6 +229,17 @@
     </div>
 
     
+        <h3 class="subsection-title">Extends</h3>
+
+        
+
+
+    <ul>
+        <li><a href="MCExpression.html">MCExpression</a></li>
+    </ul>
+
+
+    
 
     
 
@@ -235,166 +253,6 @@
         <h3 class="subsection-title">Members</h3>
 
         <dl>
-            
-<hr>
-<dt class="name" id="data">
-    <h4><span class="type-signature"></span>data<span class="type-signature"> :string</span></h4>
-
-    
-</dt>
-<dd>
-    
-
-    
-        <h5>Type:</h5>
-        <ul>
-            <li>
-                
-<span class="param-type">string</span>
-
-
-
-            </li>
-        </ul>
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="mc-chunk.js.html">mc-chunk.js</a>,
-				 <a href="mc-chunk.js.html#sunlight-1-line-9">line 9</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt class="name" id="type">
-    <h4><span class="type-signature"></span>type<span class="type-signature"> :'discreet'|'block'|'include'</span></h4>
-
-    
-</dt>
-<dd>
-    
-
-    
-        <h5>Type:</h5>
-        <ul>
-            <li>
-                
-<span class="param-type">'discreet'</span>
-|
-
-<span class="param-type">'block'</span>
-|
-
-<span class="param-type">'include'</span>
-
-
-
-            </li>
-        </ul>
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="mc-chunk.js.html">mc-chunk.js</a>,
-				 <a href="mc-chunk.js.html#sunlight-1-line-12">line 12</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-</dd>
-
-        
             
 <hr>
 <dt class="name" id="value">
@@ -427,6 +285,15 @@
 	
 
 	
+	<dt class="inherited-from method-doc-label method-doc-details-label">Inherited From:</dt>
+	<dd class="inherited-from">
+		<ul class="dummy">
+			<li>
+				<a href="MCExpression.html#value">MCExpression#value</a>
+			</li>
+		</ul>
+	</dd>
+	
 
     
 
@@ -453,8 +320,8 @@
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="mc-chunk.js.html">mc-chunk.js</a>,
-				 <a href="mc-chunk.js.html#sunlight-1-line-15">line 15</a>
+				<a href="ast_mc-expression.js.html">ast/mc-expression.js</a>,
+				 <a href="ast_mc-expression.js.html#sunlight-1-line-17">line 17</a>
 			</li>
 		</ul>
 	</dd>
@@ -474,334 +341,6 @@
         </dl>
     
 
-    
-        <h3 class="subsection-title">Methods</h3>
-
-        <dl>
-            
-<hr>
-<dt>
-    <h4 class="name" id=".getType"><span class="type-signature">&lt;static> </span>getType(data)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>data</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="mc-chunk.js.html">mc-chunk.js</a>,
-				 <a href="mc-chunk.js.html#sunlight-1-line-19">line 19</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">'discreet'</span>
-|
-
-<span class="param-type">'block'</span>
-|
-
-<span class="param-type">'close'</span>
-|
-
-<span class="param-type">'include'</span>
-
-
-
-    </dd>
-</dl>
-
-
-        
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id=".getValue"><span class="type-signature">&lt;static> </span>getValue(data)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>data</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="mc-chunk.js.html">mc-chunk.js</a>,
-				 <a href="mc-chunk.js.html#sunlight-1-line-42">line 42</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-	<dt class="tag-todo method-doc-label method-doc-details-label">To Do:</dt>
-	<dd class="tag-todo">
-		<ul>
-			<li>Determine if value is a compiler directive or browser directive</li>
-			</ul>
-	</dd>
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">string</span>
-
-
-
-    </dd>
-</dl>
-
-
-        
-
-    
-</dd>
-
-        </dl>
     
 
     
