@@ -4,9 +4,9 @@
   "description": "Another template library, under construction",
   "main": "lib/mutton-chops.js",
   "scripts": {
-    "postinstall" : "node -e \"var s='../src',d='node_modules/src',fs=require('fs');fs.exists(d,function(e){e||fs.symlinkSync(s,d,'dir')});\"",
-    "test": "mocha test/test.js",
-    "docs": "jsdoc -r src -d documentation",
+    "postinstall": "node -e \"var s='../src',d='node_modules/src',fs=require('fs');fs.exists(d,function(e){e||fs.symlinkSync(s,d,'dir')});\"",
+    "test": "node_modules/.bin/mocha test/test.js",
+    "docs": "node_modules/.bin/jsdoc -c ./jsdoc.conf.json -t ./node_modules/ink-docstrap/template -r src -d documentation",
     "docs-publish": "git subtree push --prefix documentation origin gh-pages"
   },
   "bin": {
@@ -20,6 +20,7 @@
   "license": "MIT",
   "homepage": "https://github.com/aldlevine/mutton-chops#readme",
   "devDependencies": {
+    "ink-docstrap": "^1.1.0",
     "jsdoc": "^3.4.0",
     "mocha": "^2.3.4"
   },

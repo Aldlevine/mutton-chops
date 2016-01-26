@@ -4,23 +4,29 @@ var assert = require('assert')
 
 describe("MCChunk#getType", function(){
 
+  it('should read "discreet" type', function(){
+    assert(MCChunk.getType('hello') == 'discreet');
+    assert(MCChunk.getType('   hello   ') == 'discreet');
+    assert(MCChunk.getType('hello  >') == 'discreet');
+    assert(MCChunk.getType('  hello  #  ') == 'discreet');
+  });
+
   it('should read "block" type', function(){
     assert(MCChunk.getType('# hello') == 'block');
     assert(MCChunk.getType('  #   hello  ') == 'block');
     assert(MCChunk.getType('#> hello') == 'block');
   });
 
+  it('should read "close" type', function(){
+    assert(MCChunk.getType('# /hello') == 'close');
+    assert(MCChunk.getType('  #  / hello  ') == 'close');
+    assert(MCChunk.getType('#/> hello') == 'close');
+  });
+
   it('should read "include" type', function(){
     assert(MCChunk.getType('> hello') == 'include');
     assert(MCChunk.getType('  >   hello  ') == 'include');
     assert(MCChunk.getType('># hello') == 'include');
-  });
-
-  it('should read "discreet" type', function(){
-    assert(MCChunk.getType('hello') == 'discreet');
-    assert(MCChunk.getType('   hello   ') == 'discreet');
-    assert(MCChunk.getType('hello  >') == 'discreet');
-    assert(MCChunk.getType('  hello  #  ') == 'discreet');
   });
 
 });

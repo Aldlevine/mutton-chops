@@ -1,36 +1,72 @@
 <!-- BEGIN: Main -->
-{{# $template({name: 'main', context: 'ctx'}) }}
+{{# @template({name: 'main', context: 'ctx'}) }}
   <div class="test">
-    {{# $each({collection: ctx.children, item: 'item', key: 'i', animate: 'data-anim-state'}) }}
+    {{# @each({collection: ctx.children, item: 'item', key: 'i', animate: 'data-anim-state'}) }}
       <label>
         {{ item.name }}:
-        <input type="text" $on:input:keypress:keyup="$update(item.value)" value="{{ item.value }}" />
+        <input type="text" @on:input:keypress:keyup="$update(item.value)" value="{{ item.value }}" />
       </label>
-    {{/ $each }}
+    {{/ @each }}
   </div>
   {{ $render({data: ctx, template: 'post-loop'}) }}
-{{/ $template }}
+{{/ @template }}
 <!-- END: Main -->
 
-<!-- Begin: PostLoop -->
-{{# $template({name: 'post-loop', context: 'ctx', root: 'root'}) }}
-  {{# $each({collection: ctx.posts, item: 'post', key: 'i'}) }}
+<!--
+  BEGIN: Main-Compiled
+  it'll look something like this, but not quite.
+-->
+<script>
+function main(ctx)
+{
+  ret = [];
+  var tmp1 = document.createElement('div');
+  tmp1.className = 'test';
+  ret.push(tmp1);
+  var each1 = MC.each(ctx.children, {animate: 'data-anim-state'}, function(item,i){
+    var ret = [];
+    var tmp2 = document.createElement('label');
+    ret.push(tmp2);
+    var tmp3 = document.createTextNode(item.name);
+    var tmp4 = document.createElement('input');
+    tmp4.setAttribute('type', 'text');
+    MC.bindAttrib(tmp4, 'value', item, 'value');
+    MC.bindEvent(tmp4, ['input', 'keypress', 'keyup'], function(){$update(item.value)});
+    tmp2.appendChild(tmp3);
+    tmp2.appendChild(tmp4);
+    return ret;
+  });
+  for(var i=0, ii=each1.length; i<ii; i++)
+  {
+    tmp1.appendChild(each1[i]);
+  }
+  ret += $render({data: ctx, template: 'post-loop'});
+  return ret;
+}
+</script>
+<!-- END: Main-Compiled -->
+
+
+
+<!-- BEGIN: PostLoop -->
+{{# @template({name: 'post-loop', context: 'ctx', root: 'root'}) }}
+  {{# @each({collection: ctx.posts, item: 'post', key: 'i'}) }}
     <div class="post">
       <p>name: {{post.user.name}}</p>
       <p>{{post.content}}</p>
       <p>
-        <a class="button like" $on:click="post.like()"></a>
-        <a class="button comment" $on:click="post.comment()"></a>
-        {{# $if(post.user.id == root.user.id) }}
-          <a class="button delete" $on:click="post.delete()"></a>
-        {{/ $if }}
+        <a class="button like" @on:click="post.like()"></a>
+        <a class="button comment" @on:click="post.comment()"></a>
+        {{# @if(post.user.id == root.user.id) }}
+          <a class="button delete" @on:click="post.delete()"></a>
+        {{/ @if }}
       </p>
-      {{# $if(post.posts && post.posts.length > 0) }}
+      {{# @if(post.posts && post.posts.length > 0) }}
         {{ $render({data: post, template: 'post-loop'}) }}
-      {{/ $if }}
+      {{/ @if }}
     </div>
-  {{/ $each }}
-{{/ $template }}
+  {{/ @each }}
+{{/ @template }}
 <!-- END: PostLoop -->
 
 {{ testChunk + '\}\}' }}

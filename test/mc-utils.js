@@ -36,7 +36,7 @@ describe("MCUtils#defaults", function(){
     assert.throws( function(){ MCUtils.defaults(12345, {}) } );
   });
 
-  it('should throw error if options are not an object or function()', function(){
+  it('should throw error if options are not an object or function', function(){
     assert.throws( function(){ MCUtils.defaults({}, 'not-an-object-or-function') } );
     assert.throws( function(){ MCUtils.defaults({}, 12345) } );
   });
