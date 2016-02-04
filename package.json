@@ -2,10 +2,10 @@
   "name": "mutton-chops",
   "version": "0.0.6",
   "description": "Another template library, under construction",
-  "main": "lib/mutton-chops.js",
+  "main": "node_modules/src/mutton-chops.js",
   "scripts": {
     "test": "node_modules/.bin/mocha test/test.js",
-    "docs": "node_modules/.bin/jsdoc -c ./jsdoc.conf.json -t ./node_modules/ink-docstrap/template -r src -d documentation",
+    "docs": "node_modules/.bin/jsdoc -c ./jsdoc.conf.json -t ./node_modules/ink-docstrap/template -r node_modules/src -d documentation",
     "docs-publish": "git subtree push --prefix documentation origin gh-pages"
   },
   "bin": {
@@ -24,6 +24,7 @@
     "mocha": "^2.3.4"
   },
   "dependencies": {
+    "acorn": "^2.7.0",
     "htmlparser": "^1.7.7",
     "lodash": "^4.0.0",
     "yargs": "^3.32.0"

@@ -18,9 +18,9 @@ describe("MCChunk#getType", function(){
   });
 
   it('should read "close" type', function(){
-    assert(MCChunk.getType('# /hello') == 'close');
-    assert(MCChunk.getType('  #  / hello  ') == 'close');
-    assert(MCChunk.getType('#/> hello') == 'close');
+    assert(MCChunk.getType(' /hello') == 'close');
+    assert(MCChunk.getType('  / hello  ') == 'close');
+    assert(MCChunk.getType('/> hello') == 'close');
   });
 
   it('should read "include" type', function(){
