@@ -1,5 +1,10 @@
+process.env.NODE_PATH = __dirname+'/../';
+require('module').Module._initPaths();
+
 var MCUtils = require('src/mc-utils')
 ;
+
+console.log(require);
 
 module.exports = (function(){
 

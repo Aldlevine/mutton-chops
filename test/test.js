@@ -1,3 +1,6 @@
+process.env.NODE_PATH = __dirname+'/../';
+require('module').Module._initPaths();
+
 require('./mc-utils');
 require('./mc-chunk');
 
