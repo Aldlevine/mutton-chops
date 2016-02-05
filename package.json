@@ -27,6 +27,7 @@
     "acorn": "^2.7.0",
     "htmlparser": "^1.7.7",
     "lodash": "^4.0.0",
+    "uglify-js": "^2.6.1",
     "yargs": "^3.32.0"
   }
 }
