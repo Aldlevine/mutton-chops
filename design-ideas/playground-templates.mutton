@@ -1,14 +1,14 @@
 <!-- BEGIN: Main -->
 {{# $template({name: 'main', context: 'ctx'}) }}
   <div class="test">
-    {{# $each({collection: ctx.children, item: 'item', key: 'i', animate: 'data-anim-state'}) }}
+    {{# $each({collection: 'ctx.children', item: 'item', key: 'i', animate: 'data-anim-state'}) }}
       <label>
-        {{ item.name }}:
-        <input type="text" $on:input:keypress:keyup="$update(item.value)" value="{{ item.value }}" />
+        {{= item.name }}:
+        <input type="text" {{ $on('input keyup keypress', $update('item.value')) }} value={{=item.value}} />
       </label>
     {{/ $each }}
   </div>
-  {{ $render({data: ctx, template: 'post-loop'}) }}
+  {{ $render({data: 'ctx', template: 'post-loop'}) }}
 {{/ $template }}
 <!-- END: Main -->
 
