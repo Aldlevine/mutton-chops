@@ -1,1 +1,1 @@
-{{> ./playground-templates }}
+<mc:include src="./playground-templates" />

@@ -26,6 +26,7 @@
   "dependencies": {
     "acorn": "^2.7.0",
     "htmlparser": "^1.7.7",
+    "htmlparser2": "^3.9.0",
     "lodash": "^4.0.0",
     "uglify-js": "^2.6.1",
     "yargs": "^3.32.0"
