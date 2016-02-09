@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>DocStrap Source: ast/mc-attrib-expression.js</title>
+	<title>DocStrap Class: InterpolatorExpression</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -32,14 +32,14 @@
 			<li class="dropdown">
 				<a href="namespaces.list.html" class="dropdown-toggle" data-toggle="dropdown">Namespaces<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="MCUtils.html">MCUtils</a></li>
+					<li><a href="AST.html">AST</a></li><li><a href="Utils.html">Utils</a></li>
 				</ul>
 			</li>
 			
 			<li class="dropdown">
 				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="MCAttribExpression.html">MCAttribExpression</a></li><li><a href="MCBlockNode.html">MCBlockNode</a></li><li><a href="MCChunk.html">MCChunk</a></li><li><a href="MCCompileExpression.html">MCCompileExpression</a></li><li><a href="MCCompiler.html">MCCompiler</a></li><li><a href="MCCompilerDirective.html">MCCompilerDirective</a></li><li><a href="MCDOMNode.html">MCDOMNode</a></li><li><a href="MCExpression.html">MCExpression</a></li><li><a href="MCNode.html">MCNode</a></li><li><a href="MCParser.html">MCParser</a></li><li><a href="MCRenderExpression.html">MCRenderExpression</a></li><li><a href="MuttonChops.html">MuttonChops</a></li>
+					<li><a href="Attrib.html">Attrib</a></li><li><a href="AttribDirective.html">AttribDirective</a></li><li><a href="CharBuf.html">CharBuf</a></li><li><a href="Compiler.html">Compiler</a></li><li><a href="DomHandler.html">DomHandler</a></li><li><a href="Interpolator.html">Interpolator</a></li><li><a href="InterpolatorChunk.html">InterpolatorChunk</a></li><li><a href="InterpolatorExpression.html">InterpolatorExpression</a></li><li><a href="InterpolatorString.html">InterpolatorString</a></li><li><a href="MuttonChops.html">MuttonChops</a></li><li><a href="Node.html">Node</a></li><li><a href="Parser.html">Parser</a></li><li><a href="Tag.html">Tag</a></li><li><a href="TagDirective.html">TagDirective</a></li><li><a href="Text.html">Text</a></li>
 				</ul>
 			</li>
 			
@@ -64,50 +64,284 @@
 <div class="row">
 
 	
-	<div class="col-md-12">
+	<div class="col-md-8">
 	
 		<div id="main">
 			
 
-		<h1 class="page-title">Source: ast/mc-attrib-expression.js</h1>
-    
+	<h1 class="page-title">Class: InterpolatorExpression</h1>
 <section>
-    <article>
-        <pre
-            class="sunlight-highlight-javascript linenums">var MCUtils = require('src/mc-utils')
-  , MCExpression = require('src/ast/mc-expression')
-;
 
-module.exports = (function(){
-  /**
-   * An Mutton Chops attributes object
-   * @class MCAttribExpression
-   * @extends MCExpression
-   * @param {Object|Function} opts
-   */
-  function MCAttribExpression(opts)
-  {
-    var opts = MCUtils.defaults({
-      type: null,
-      args: []
-    }, opts);
+<header>
+    
+        <h2>
+        InterpolatorExpression
+        </h2>
+        
+    
+</header>
 
-    MCExpression.call(this, opts);
 
-    /** @member MCAttribExpression#type {string} - The type of expression  **/
-    this.type = opts.type
+<article>
+    <div class="container-overview">
+    
+        
+<hr>
+<dt>
+    <h4 class="name" id="InterpolatorExpression"><span class="type-signature"></span>new InterpolatorExpression(opts)</h4>
+    
+    
+</dt>
+<dd>
 
-    /** @member MCAttribExpression#args {string[]} - The arguments passed into the expression **/
-    this.args = opts.args;
-  }
+    
 
-  MCAttribExpression.prototype = Object.create(MCExpression.prototype);
+    
 
-})();
-</pre>
-    </article>
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>opts</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The interpolator expression options</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ast_interpolator-expression.js.html">ast/interpolator-expression.js</a>,
+				 <a href="ast_interpolator-expression.js.html#sunlight-1-line-3">line 3</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+    
+    </div>
+
+    
+        <h3 class="subsection-title">Extends</h3>
+
+        
+
+
+    <ul>
+        <li><a href="InterpolatorChunk.html">InterpolatorChunk</a></li>
+    </ul>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Members</h3>
+
+        <dl>
+            
+<hr>
+<dt class="name" id="data">
+    <h4><span class="type-signature"></span>data<span class="type-signature"> :string</span></h4>
+
+    
+</dt>
+<dd>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">string</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+	<dt class="inherited-from method-doc-label method-doc-details-label">Inherited From:</dt>
+	<dd class="inherited-from">
+		<ul class="dummy">
+			<li>
+				<a href="InterpolatorChunk.html#data">InterpolatorChunk#data</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ast_interpolator-chunk.js.html">ast/interpolator-chunk.js</a>,
+				 <a href="ast_interpolator-chunk.js.html#sunlight-1-line-10">line 10</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        </dl>
+    
+
+    
+
+    
+
+    
+</article>
+
 </section>
-
 
 
 
@@ -117,6 +351,10 @@ module.exports = (function(){
 
 	<div class="clearfix"></div>
 
+	
+		<div class="col-md-3">
+			<div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md"></div>
+		</div>
 	
 
 </div>
@@ -147,7 +385,7 @@ module.exports = (function(){
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a>
 	
-		on Sat Feb 6th 2016
+		on Tue Feb 9th 2016
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

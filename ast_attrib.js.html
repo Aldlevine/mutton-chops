@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>DocStrap Namespaces</title>
+	<title>DocStrap Source: ast/attrib.js</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -64,152 +64,36 @@
 <div class="row">
 
 	
-	<div class="col-md-8">
+	<div class="col-md-12">
 	
 		<div id="main">
 			
 
-	<h1 class="page-title">Namespaces</h1>
+		<h1 class="page-title">Source: ast/attrib.js</h1>
+    
 <section>
+    <article>
+        <pre
+            class="sunlight-highlight-javascript linenums">/**
+ * An attribute
+ * @class Attrib
+ * @param  {Object} opts - The attribute options
+ */
+var Attrib = module.exports = function Attrib(opts)
+{
+  if(!(this instanceof Attrib))
+    return new Attrib(opts);
 
-<header>
-    
-        <h2>
-        
-        </h2>
-        
-    
-</header>
+  /** @member {string} Attrib#name */
+  this.name = opts.name || null;
 
-
-<article>
-    <div class="container-overview">
-    
-        
-
-        
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-        
-    
-    </div>
-
-    
-
-    
-
-    
-        <h3 class="subsection-title">Classes</h3>
-
-        <dl>
-            <dt><a href="Attrib.html">Attrib</a></dt>
-            <dd></dd>
-        
-            <dt><a href="AttribDirective.html">AttribDirective</a></dt>
-            <dd></dd>
-        
-            <dt><a href="CharBuf.html">CharBuf</a></dt>
-            <dd></dd>
-        
-            <dt><a href="Compiler.html">Compiler</a></dt>
-            <dd></dd>
-        
-            <dt><a href="DomHandler.html">DomHandler</a></dt>
-            <dd></dd>
-        
-            <dt><a href="Interpolator.html">Interpolator</a></dt>
-            <dd></dd>
-        
-            <dt><a href="InterpolatorChunk.html">InterpolatorChunk</a></dt>
-            <dd></dd>
-        
-            <dt><a href="InterpolatorExpression.html">InterpolatorExpression</a></dt>
-            <dd></dd>
-        
-            <dt><a href="InterpolatorString.html">InterpolatorString</a></dt>
-            <dd></dd>
-        
-            <dt><a href="MuttonChops.html">MuttonChops</a></dt>
-            <dd></dd>
-        
-            <dt><a href="Node.html">Node</a></dt>
-            <dd></dd>
-        
-            <dt><a href="Parser.html">Parser</a></dt>
-            <dd></dd>
-        
-            <dt><a href="Tag.html">Tag</a></dt>
-            <dd></dd>
-        
-            <dt><a href="TagDirective.html">TagDirective</a></dt>
-            <dd></dd>
-        
-            <dt><a href="Text.html">Text</a></dt>
-            <dd></dd>
-        </dl>
-    
-
-    
-
-    
-        <h3 class="subsection-title">Namespaces</h3>
-
-        <dl>
-            <dt><a href="namespaces.html#AST"><a href="AST.html">AST</a></a></dt>
-            <dd></dd>
-        
-            <dt><a href="namespaces.html#Utils"><a href="Utils.html">Utils</a></a></dt>
-            <dd></dd>
-        </dl>
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
+  /** @member {Interpolator} Attrib#data */
+  this.data = opts.data || null;
+}
+</pre>
+    </article>
 </section>
+
 
 
 
@@ -219,10 +103,6 @@
 
 	<div class="clearfix"></div>
 
-	
-		<div class="col-md-3">
-			<div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md"></div>
-		</div>
 	
 
 </div>

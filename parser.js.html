@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>DocStrap Source: mc-parser.js</title>
+	<title>DocStrap Source: parser.js</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -32,14 +32,14 @@
 			<li class="dropdown">
 				<a href="namespaces.list.html" class="dropdown-toggle" data-toggle="dropdown">Namespaces<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="MCUtils.html">MCUtils</a></li>
+					<li><a href="AST.html">AST</a></li><li><a href="Utils.html">Utils</a></li>
 				</ul>
 			</li>
 			
 			<li class="dropdown">
 				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="MCAttribExpression.html">MCAttribExpression</a></li><li><a href="MCBlockNode.html">MCBlockNode</a></li><li><a href="MCChunk.html">MCChunk</a></li><li><a href="MCCompileExpression.html">MCCompileExpression</a></li><li><a href="MCCompiler.html">MCCompiler</a></li><li><a href="MCCompilerDirective.html">MCCompilerDirective</a></li><li><a href="MCDOMNode.html">MCDOMNode</a></li><li><a href="MCExpression.html">MCExpression</a></li><li><a href="MCNode.html">MCNode</a></li><li><a href="MCParser.html">MCParser</a></li><li><a href="MCRenderExpression.html">MCRenderExpression</a></li><li><a href="MuttonChops.html">MuttonChops</a></li>
+					<li><a href="Attrib.html">Attrib</a></li><li><a href="AttribDirective.html">AttribDirective</a></li><li><a href="CharBuf.html">CharBuf</a></li><li><a href="Compiler.html">Compiler</a></li><li><a href="DomHandler.html">DomHandler</a></li><li><a href="Interpolator.html">Interpolator</a></li><li><a href="InterpolatorChunk.html">InterpolatorChunk</a></li><li><a href="InterpolatorExpression.html">InterpolatorExpression</a></li><li><a href="InterpolatorString.html">InterpolatorString</a></li><li><a href="MuttonChops.html">MuttonChops</a></li><li><a href="Node.html">Node</a></li><li><a href="Parser.html">Parser</a></li><li><a href="Tag.html">Tag</a></li><li><a href="TagDirective.html">TagDirective</a></li><li><a href="Text.html">Text</a></li>
 				</ul>
 			</li>
 			
@@ -69,136 +69,60 @@
 		<div id="main">
 			
 
-		<h1 class="page-title">Source: mc-parser.js</h1>
+		<h1 class="page-title">Source: parser.js</h1>
     
 <section>
     <article>
         <pre
-            class="sunlight-highlight-javascript linenums">var _ = require('lodash')
-  , htmlparser = require('htmlparser')
-  , MCUtils = require('src/mc-utils')
-  , MCChunk = require('src/mc-chunk')
+            class="sunlight-highlight-javascript linenums">var HtmlParser = require('htmlparser2')
+  , Utils = require('src/utils')
+  , AST = require('src/ast')
+  , DomHandler = require('src/dom-handler')
+  , stream = require('stream')
+  , util = require('util')
 ;
 
-module.exports = (function(){
+/**
+ * The document parser
+ * @class Parser
+ * @param {Object|Function} [opts] The parser options
+ * @param {Function} done The callback once parsing is complete
+ */
+var Parser = module.exports = function Parser(opts)
+{
+  if(!(this instanceof Parser))
+    return new Parser(opts);
 
-  /**
-   * @class MCParser
-   * @param {Object|Function} opts
-   */
-  function MCParser(opts)
-  {
-    var opts = MCUtils.defaults({}, opts);
-  }
+  stream.Transform.call(this);
 
-  /**
-   * Creates an object containing the MuttonChops hierarchy.
-   * Follows HTML hierarchy, but takes it a step further with MC syntax
-   *
-   * @function MCParser#generateMCDOM
-   * @param {string} str
-   * @returns {Object|Object[]}
-   *
-   * @TODO Build method
-   * @TODO Write unit test
-   */
-  MCParser.prototype.generateMCDOM = function (str) {
+  var self = this
+    , opts = Utils.defaults({}, opts)
+  ;
 
-  };
+  this._readableState.objectMode = true;
+  this._writableState.objectMode = false;
+  this.htmlparser = new HtmlParser.Parser(new DomHandler(this));
+}
+util.inherits(Parser, stream.Transform);
 
-  /**
-   * Parses an HTML document into the MC ast
-   *
-   * @function MCParser#parseHTML
-   * @param  {string} str - The MC html to parse
-   * @return {Array} An array containing the ast
-   */
-  MCParser.prototype.parseHTML = function (str) {
+/**
+ * Handles the transform stream
+ * @function Parser#_transform
+ * @param  {Buffer} chunk - The data buffer
+ * @param  {string} enc - The data encoding
+ * @param  {Function} fn - The callback function
+ */
+Parser.prototype._transform = function(chunk, enc, fn)
+{
+  this.htmlparser.write(chunk);
+  fn();
+}
 
-  };
-
-  /**
-   * Parses a DOM text node value into a MCDOM hierarchy
-   *
-   * @function MCParser#parseTextNode
-   * @param {string} str
-   * @returns {Object|Object[]}
-   *
-   * @TODO Write unit test
-   */
-  MCParser.prototype.parseTextNode = function (str) {
-    var charBuf = str.split('')
-      , charLast = null
-      , charLast2 = null
-      , charCur
-      , isInMC = false
-      , isInMCStr = false
-      , chunkCur = ''
-      , chunks = []
-    ;
-
-    for(;;)
-    {
-      charLast2 = charLast;
-      charLast = charCur;
-      charCur = charBuf.shift();
-
-      if(!charCur)
-      {
-        // EOF
-        if( chunkCur.length ) chunks.push(chunkCur);
-        break;
-      }
-
-      if( !isInMC )
-      {
-        if( charCur == '{' &amp;&amp; charLast == '{' )
-        {
-          // Found beginning of an MCChunk
-          isInMC = true;
-          if( chunkCur.length ) chunks.push(chunkCur)
-          chunkCur = '';
-          continue;
-        }
-        else if( charCur == '{' &amp;&amp; charBuf[0] == '{' )
-        {
-          // Next iteration will be beginning of MCChunk
-          continue;
-        }
-        else
-        {
-          // Push character
-          chunkCur += charCur;
-        }
-      }
-      else
-      {
-        if( !isInMCStr &amp;&amp; charCur == '}' &amp;&amp; charLast == '}' )
-        {
-          // Found end of MCChunk
-          isInMC = false;
-          chunks.push( new MCChunk(chunkCur) );
-          chunkCur = '';
-          continue;
-        }
-        else if( charCur == '}' &amp;&amp; charBuf[0] == '}' )
-        {
-          // Next iteration will be end of MCChunk
-          continue;
-        }
-        else {
-          // Push character
-          chunkCur += charCur;
-        }
-      }
-    }
-
-    return chunks;
-  };
-
-  return MCParser;
-
-})();
+Parser.prototype.end = function()
+{
+  this.htmlparser.end();
+  this.push(null);
+}
 </pre>
     </article>
 </section>
@@ -242,7 +166,7 @@ module.exports = (function(){
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a>
 	
-		on Sat Feb 6th 2016
+		on Tue Feb 9th 2016
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

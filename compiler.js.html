@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>DocStrap Namespaces</title>
+	<title>DocStrap Source: compiler.js</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -64,152 +64,105 @@
 <div class="row">
 
 	
-	<div class="col-md-8">
+	<div class="col-md-12">
 	
 		<div id="main">
 			
 
-	<h1 class="page-title">Namespaces</h1>
+		<h1 class="page-title">Source: compiler.js</h1>
+    
 <section>
+    <article>
+        <pre
+            class="sunlight-highlight-javascript linenums">var _ = require('lodash')
+  , Utils = require('src/utils')
+  , Parser = require('src/parser')
+  , stream = require('stream')
+  , util = require('util')
+  , fs = require('fs')
+;
 
-<header>
-    
-        <h2>
-        
-        </h2>
-        
-    
-</header>
+/**
+ * @class Compiler
+ * @param {Object|Function} opts
+ */
+var Compiler = module.exports = function Compiler(opts)
+{
+  if(!(this instanceof Compiler))
+    return new Compiler(opts);
 
-
-<article>
-    <div class="container-overview">
-    
-        
-
-        
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
+  stream.Transform.call(this, {objectMode: true});
+}
+util.inherits(Compiler, stream.Transform);
 
 
-
-	
-
-	
-
-	
-
-	
-</dl>
+Compiler.prototype._transform = function (chunk, enc, done) {
+  return this.compileString(chunk);
+  done();
+};
 
 
-        
-    
-    </div>
+Compiler.prototype._compileRoutine = function (stream, done) {
+  var self = this
+    , done = done || function(){}
+    , parser = new Parser()
+    , out = []
+  ;
 
-    
+  parser.on('data', function(chunk){
+    out = out.concat(chunk);
+    self.push(chunk);
+  });
 
-    
+  parser.on('end', function(){
+    done(null, out);
+  });
 
-    
-        <h3 class="subsection-title">Classes</h3>
+  parser.on('error', function(err){
+    if( typeof done === 'function' ) return done(err);
+    throw err;
+  });
 
-        <dl>
-            <dt><a href="Attrib.html">Attrib</a></dt>
-            <dd></dd>
-        
-            <dt><a href="AttribDirective.html">AttribDirective</a></dt>
-            <dd></dd>
-        
-            <dt><a href="CharBuf.html">CharBuf</a></dt>
-            <dd></dd>
-        
-            <dt><a href="Compiler.html">Compiler</a></dt>
-            <dd></dd>
-        
-            <dt><a href="DomHandler.html">DomHandler</a></dt>
-            <dd></dd>
-        
-            <dt><a href="Interpolator.html">Interpolator</a></dt>
-            <dd></dd>
-        
-            <dt><a href="InterpolatorChunk.html">InterpolatorChunk</a></dt>
-            <dd></dd>
-        
-            <dt><a href="InterpolatorExpression.html">InterpolatorExpression</a></dt>
-            <dd></dd>
-        
-            <dt><a href="InterpolatorString.html">InterpolatorString</a></dt>
-            <dd></dd>
-        
-            <dt><a href="MuttonChops.html">MuttonChops</a></dt>
-            <dd></dd>
-        
-            <dt><a href="Node.html">Node</a></dt>
-            <dd></dd>
-        
-            <dt><a href="Parser.html">Parser</a></dt>
-            <dd></dd>
-        
-            <dt><a href="Tag.html">Tag</a></dt>
-            <dd></dd>
-        
-            <dt><a href="TagDirective.html">TagDirective</a></dt>
-            <dd></dd>
-        
-            <dt><a href="Text.html">Text</a></dt>
-            <dd></dd>
-        </dl>
-    
+  return stream
+    .pipe(parser)
+  ;
+};
 
-    
+/**
+ * @function Compiler#compileString
+ * @param {string} str
+ *
+ * @TODO Write unit test
+ */
+Compiler.prototype.compileString = function (str, done)
+{
+  var stringStream = new stream.Readable()
+  ;
 
-    
-        <h3 class="subsection-title">Namespaces</h3>
+  stringStream._read = function(){
+    this.push(str);
+    this.push(null);
+  };
 
-        <dl>
-            <dt><a href="namespaces.html#AST"><a href="AST.html">AST</a></a></dt>
-            <dd></dd>
-        
-            <dt><a href="namespaces.html#Utils"><a href="Utils.html">Utils</a></a></dt>
-            <dd></dd>
-        </dl>
-    
+  return this._compileRoutine(stringStream, done);
+  ;
+}
 
-    
-
-    
-
-    
-
-    
-</article>
-
+/**
+ * @function Compiler#compileFile
+ * @param {string} fileName
+ *
+ * @TODO Write unit test
+ */
+Compiler.prototype.compileFile = function (fileName, done)
+{
+  var fileStream = fs.createReadStream(fileName)
+  return this._compileRoutine(fileStream, done);
+}
+</pre>
+    </article>
 </section>
+
 
 
 
@@ -219,10 +172,6 @@
 
 	<div class="clearfix"></div>
 
-	
-		<div class="col-md-3">
-			<div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md"></div>
-		</div>
 	
 
 </div>
