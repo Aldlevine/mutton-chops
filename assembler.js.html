@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>DocStrap Class: Parser</title>
+	<title>DocStrap Source: assembler.js</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -64,424 +64,95 @@
 <div class="row">
 
 	
-	<div class="col-md-8">
+	<div class="col-md-12">
 	
 		<div id="main">
 			
 
-	<h1 class="page-title">Class: Parser</h1>
+		<h1 class="page-title">Source: assembler.js</h1>
+    
 <section>
+    <article>
+        <pre
+            class="sunlight-highlight-javascript linenums">var Utils = require('src/utils')
+  , AST = require('src/ast')
+;
 
-<header>
-    
-        <h2>
-        Parser
-        </h2>
-        
-    
-</header>
+/**
+ * Assembles the AST into Javascript
+ * @class Assembler
+ * @param  {Object} opts - The assembler options
+ */
+var Assembler = module.exports = function Assembler(opts)
+{
+  if(!(this instanceof Assembler))
+    return new Assembler(opts);
 
+  var opts = Utils.defaults({}, opts);
+}
 
-<article>
-    <div class="container-overview">
-    
-        
-<hr>
-<dt>
-    <h4 class="name" id="Parser"><span class="type-signature"></span>new Parser(<span class="optional">opts</span>, done)</h4>
-    
-    
-</dt>
-<dd>
+Assembler.prototype.assemble = function (ast) {
+  this._assembleNodes(ast);
+};
 
-    
-    <div class="description">
-        <p>The document parser</p>
-    </div>
-    
+Assembler.prototype._assembleNodes = function (ast) {
+  var ret = '';
+  for( var i=0, ii=ast.length; i&lt;ii; i++ )
+  {
+    var node = ast[i];
+    switch(node.constructor)
+    {
+      case AST.TagDirective:
+        ret += this._tagDirective(node);
+        break;
+      case AST.Tag:
+        ret += this._tag(node);
+        break;
+      case AST.Text:
+        ret += this._text(node);
+        break;
+      default:
+        throw new Error('Bad node type in syntax tree');
+    }
+  }
+  return ret;
+};
 
-    
+Assembler.prototype._attribDirective = function () {
 
-    
+};
 
-    
-    
-        <h5>Parameters:</h5>
-        
+Assembler.prototype._attrib = function () {
 
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
+};
 
-        <th>Type</th>
+Assembler.prototype._interpolatorExpression = function () {
 
-        
-        <th>Argument</th>
-        
+};
 
-        
+Assembler.prototype._interpolatorString = function () {
 
-        <th class="last">Description</th>
-    </tr>
-    </thead>
+};
 
-    <tbody>
-    
+Assembler.prototype._interpolator = function () {
 
-        <tr>
-            
-                <td class="name"><code>opts</code></td>
-            
+};
 
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-|
+Assembler.prototype._tagDirective = function (node) {
 
-<span class="param-type">function</span>
+};
 
+Assembler.prototype._tag = function (node) {
 
+};
 
-            
-            </td>
+Assembler.prototype._text = function (node) {
 
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>The parser options</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>done</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">function</span>
-
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>The callback once parsing is complete</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="parser.js.html">parser.js</a>,
-				 <a href="parser.js.html#sunlight-1-line-9">line 9</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dd>
-
-    
-    </div>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <h3 class="subsection-title">Methods</h3>
-
-        <dl>
-            
-<hr>
-<dt>
-    <h4 class="name" id="_transform"><span class="type-signature"></span>_transform(chunk, enc, fn)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Handles the transform stream</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>chunk</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Buffer</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>The data buffer</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>enc</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>The data encoding</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>fn</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">function</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>The callback function</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="parser.js.html">parser.js</a>,
-				 <a href="parser.js.html#sunlight-1-line-32">line 32</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dd>
-
-        </dl>
-    
-
-    
-
-    
-</article>
-
+};
+</pre>
+    </article>
 </section>
+
 
 
 
@@ -491,10 +162,6 @@
 
 	<div class="clearfix"></div>
 
-	
-		<div class="col-md-3">
-			<div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md"></div>
-		</div>
 	
 
 </div>
