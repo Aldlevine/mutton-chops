@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>DocStrap Class: MCExpression</title>
+	<title>DocStrap Class: AttribDirective</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -32,14 +32,14 @@
 			<li class="dropdown">
 				<a href="namespaces.list.html" class="dropdown-toggle" data-toggle="dropdown">Namespaces<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="MCUtils.html">MCUtils</a></li>
+					<li><a href="AST.html">AST</a></li><li><a href="Utils.html">Utils</a></li>
 				</ul>
 			</li>
 			
 			<li class="dropdown">
 				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="MCAttribExpression.html">MCAttribExpression</a></li><li><a href="MCBlockNode.html">MCBlockNode</a></li><li><a href="MCChunk.html">MCChunk</a></li><li><a href="MCCompileExpression.html">MCCompileExpression</a></li><li><a href="MCCompiler.html">MCCompiler</a></li><li><a href="MCCompilerDirective.html">MCCompilerDirective</a></li><li><a href="MCDOMNode.html">MCDOMNode</a></li><li><a href="MCExpression.html">MCExpression</a></li><li><a href="MCNode.html">MCNode</a></li><li><a href="MCParser.html">MCParser</a></li><li><a href="MCRenderExpression.html">MCRenderExpression</a></li><li><a href="MuttonChops.html">MuttonChops</a></li>
+					<li><a href="Attrib.html">Attrib</a></li><li><a href="AttribDirective.html">AttribDirective</a></li><li><a href="CharBuf.html">CharBuf</a></li><li><a href="Compiler.html">Compiler</a></li><li><a href="DomHandler.html">DomHandler</a></li><li><a href="Interpolator.html">Interpolator</a></li><li><a href="InterpolatorChunk.html">InterpolatorChunk</a></li><li><a href="InterpolatorExpression.html">InterpolatorExpression</a></li><li><a href="InterpolatorString.html">InterpolatorString</a></li><li><a href="MuttonChops.html">MuttonChops</a></li><li><a href="Node.html">Node</a></li><li><a href="Parser.html">Parser</a></li><li><a href="Tag.html">Tag</a></li><li><a href="TagDirective.html">TagDirective</a></li><li><a href="Text.html">Text</a></li>
 				</ul>
 			</li>
 			
@@ -69,13 +69,13 @@
 		<div id="main">
 			
 
-	<h1 class="page-title">Class: MCExpression</h1>
+	<h1 class="page-title">Class: AttribDirective</h1>
 <section>
 
 <header>
     
         <h2>
-        MCExpression
+        AttribDirective
         </h2>
         
     
@@ -88,7 +88,7 @@
         
 <hr>
 <dt>
-    <h4 class="name" id="MCExpression"><span class="type-signature"></span>new MCExpression(opts)</h4>
+    <h4 class="name" id="AttribDirective"><span class="type-signature"></span>new AttribDirective(opts)</h4>
     
     
 </dt>
@@ -96,7 +96,7 @@
 
     
     <div class="description">
-        <p>A Mutton Chops expression representation</p>
+        <p>An attribute based directive</p>
     </div>
     
 
@@ -138,9 +138,6 @@
             
                 
 <span class="param-type">Object</span>
-|
-
-<span class="param-type">function</span>
 
 
 
@@ -151,7 +148,7 @@
 
             
 
-            <td class="description last"></td>
+            <td class="description last"><p>Attribute options</p></td>
         </tr>
 
     
@@ -195,8 +192,8 @@
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="ast_mc-expression.js.html">ast/mc-expression.js</a>,
-				 <a href="ast_mc-expression.js.html#sunlight-1-line-6">line 6</a>
+				<a href="ast_attrib-directive.js.html">ast/attrib-directive.js</a>,
+				 <a href="ast_attrib-directive.js.html#sunlight-1-line-4">line 4</a>
 			</li>
 		</ul>
 	</dd>
@@ -229,6 +226,17 @@
     </div>
 
     
+        <h3 class="subsection-title">Extends</h3>
+
+        
+
+
+    <ul>
+        <li><a href="Attrib.html">Attrib</a></li>
+    </ul>
+
+
+    
 
     
 
@@ -244,8 +252,8 @@
         <dl>
             
 <hr>
-<dt class="name" id="value">
-    <h4><span class="type-signature"></span>value<span class="type-signature"> :string</span></h4>
+<dt class="name" id="data">
+    <h4><span class="type-signature"></span>data<span class="type-signature"> :string</span></h4>
 
     
 </dt>
@@ -276,6 +284,11 @@
 	
 
     
+    <dt class="tag-overrides">Overrides:</dt>
+    <dd class="tag-overrides"><ul class="dummy"><li>
+        <a href="Attrib.html#data">Attrib#data</a>
+    </li></ul></dd>
+    
 
     
 
@@ -300,8 +313,94 @@
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="ast_mc-expression.js.html">ast/mc-expression.js</a>,
-				 <a href="ast_mc-expression.js.html#sunlight-1-line-17">line 17</a>
+				<a href="ast_attrib-directive.js.html">ast/attrib-directive.js</a>,
+				 <a href="ast_attrib-directive.js.html#sunlight-1-line-17">line 17</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id="name">
+    <h4><span class="type-signature"></span>name<span class="type-signature"> :string</span></h4>
+
+    
+</dt>
+<dd>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">string</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+	<dt class="inherited-from method-doc-label method-doc-details-label">Inherited From:</dt>
+	<dd class="inherited-from">
+		<ul class="dummy">
+			<li>
+				<a href="Attrib.html#name">Attrib#name</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ast_attrib.js.html">ast/attrib.js</a>,
+				 <a href="ast_attrib.js.html#sunlight-1-line-11">line 11</a>
 			</li>
 		</ul>
 	</dd>
@@ -372,7 +471,7 @@
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a>
 	
-		on Sat Feb 6th 2016
+		on Tue Feb 9th 2016
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

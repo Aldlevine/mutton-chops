@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>DocStrap Class: MCParser</title>
+	<title>DocStrap Class: Node</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -32,14 +32,14 @@
 			<li class="dropdown">
 				<a href="namespaces.list.html" class="dropdown-toggle" data-toggle="dropdown">Namespaces<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="MCUtils.html">MCUtils</a></li>
+					<li><a href="AST.html">AST</a></li><li><a href="Utils.html">Utils</a></li>
 				</ul>
 			</li>
 			
 			<li class="dropdown">
 				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="MCAttribExpression.html">MCAttribExpression</a></li><li><a href="MCBlockNode.html">MCBlockNode</a></li><li><a href="MCChunk.html">MCChunk</a></li><li><a href="MCCompileExpression.html">MCCompileExpression</a></li><li><a href="MCCompiler.html">MCCompiler</a></li><li><a href="MCCompilerDirective.html">MCCompilerDirective</a></li><li><a href="MCDOMNode.html">MCDOMNode</a></li><li><a href="MCExpression.html">MCExpression</a></li><li><a href="MCNode.html">MCNode</a></li><li><a href="MCParser.html">MCParser</a></li><li><a href="MCRenderExpression.html">MCRenderExpression</a></li><li><a href="MuttonChops.html">MuttonChops</a></li>
+					<li><a href="Attrib.html">Attrib</a></li><li><a href="AttribDirective.html">AttribDirective</a></li><li><a href="CharBuf.html">CharBuf</a></li><li><a href="Compiler.html">Compiler</a></li><li><a href="DomHandler.html">DomHandler</a></li><li><a href="Interpolator.html">Interpolator</a></li><li><a href="InterpolatorChunk.html">InterpolatorChunk</a></li><li><a href="InterpolatorExpression.html">InterpolatorExpression</a></li><li><a href="InterpolatorString.html">InterpolatorString</a></li><li><a href="MuttonChops.html">MuttonChops</a></li><li><a href="Node.html">Node</a></li><li><a href="Parser.html">Parser</a></li><li><a href="Tag.html">Tag</a></li><li><a href="TagDirective.html">TagDirective</a></li><li><a href="Text.html">Text</a></li>
 				</ul>
 			</li>
 			
@@ -69,13 +69,13 @@
 		<div id="main">
 			
 
-	<h1 class="page-title">Class: MCParser</h1>
+	<h1 class="page-title">Class: Node</h1>
 <section>
 
 <header>
     
         <h2>
-        MCParser
+        Node
         </h2>
         
     
@@ -88,12 +88,16 @@
         
 <hr>
 <dt>
-    <h4 class="name" id="MCParser"><span class="type-signature"></span>new MCParser(opts)</h4>
+    <h4 class="name" id="Node"><span class="type-signature"></span>new Node(opts)</h4>
     
     
 </dt>
 <dd>
 
+    
+    <div class="description">
+        <p>A Node element</p>
+    </div>
     
 
     
@@ -134,9 +138,6 @@
             
                 
 <span class="param-type">Object</span>
-|
-
-<span class="param-type">function</span>
 
 
 
@@ -147,7 +148,7 @@
 
             
 
-            <td class="description last"></td>
+            <td class="description last"><p>The node options</p></td>
         </tr>
 
     
@@ -191,8 +192,8 @@
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="mc-parser.js.html">mc-parser.js</a>,
-				 <a href="mc-parser.js.html#sunlight-1-line-9">line 9</a>
+				<a href="ast_node.js.html">ast/node.js</a>,
+				 <a href="ast_node.js.html#sunlight-1-line-1">line 1</a>
 			</li>
 		</ul>
 	</dd>
@@ -235,81 +236,30 @@
     
 
     
-
-    
-        <h3 class="subsection-title">Methods</h3>
+        <h3 class="subsection-title">Members</h3>
 
         <dl>
             
 <hr>
-<dt>
-    <h4 class="name" id="generateMCDOM"><span class="type-signature"></span>generateMCDOM(str)</h4>
-    
+<dt class="name" id="attribs">
+    <h4><span class="type-signature"></span>attribs<span class="type-signature"> :<a href="Attrib.html">Attrib</a></span></h4>
+
     
 </dt>
 <dd>
-
-    
-    <div class="description">
-        <p>Creates an object containing the MuttonChops hierarchy.<br>Follows HTML hierarchy, but takes it a step further with MC syntax</p>
-    </div>
     
 
     
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>str</code></td>
-            
-
-            <td class="type">
-            
+        <h5>Type:</h5>
+        <ul>
+            <li>
                 
-<span class="param-type">string</span>
+<span class="param-type"><a href="Attrib.html">Attrib</a></span>
 
 
 
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
+            </li>
+        </ul>
     
 
     
@@ -347,8 +297,8 @@
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="mc-parser.js.html">mc-parser.js</a>,
-				 <a href="mc-parser.js.html#sunlight-1-line-18">line 18</a>
+				<a href="ast_node.js.html">ast/node.js</a>,
+				 <a href="ast_node.js.html#sunlight-1-line-14">line 14</a>
 			</li>
 		</ul>
 	</dd>
@@ -359,52 +309,8 @@
 	
 
 	
-	<dt class="tag-todo method-doc-label method-doc-details-label">To Do:</dt>
-	<dd class="tag-todo">
-		<ul>
-			<li>Build method</li>
-			
-			<li>Write unit test</li>
-			</ul>
-	</dd>
-	
 </dl>
 
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Object</span>
-|
-
-<span class="param-type">Array.&lt;Object></span>
-
-
-
-    </dd>
-</dl>
-
-
-        
 
     
 </dd>
@@ -412,74 +318,25 @@
         
             
 <hr>
-<dt>
-    <h4 class="name" id="parseHTML"><span class="type-signature"></span>parseHTML(str)</h4>
-    
+<dt class="name" id="name">
+    <h4><span class="type-signature"></span>name<span class="type-signature"> :string</span></h4>
+
     
 </dt>
 <dd>
-
-    
-    <div class="description">
-        <p>Parses an HTML document into the MC ast</p>
-    </div>
     
 
     
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>str</code></td>
-            
-
-            <td class="type">
-            
+        <h5>Type:</h5>
+        <ul>
+            <li>
                 
 <span class="param-type">string</span>
 
 
 
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>The MC html to parse</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
+            </li>
+        </ul>
     
 
     
@@ -517,8 +374,8 @@
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="mc-parser.js.html">mc-parser.js</a>,
-				 <a href="mc-parser.js.html#sunlight-1-line-33">line 33</a>
+				<a href="ast_node.js.html">ast/node.js</a>,
+				 <a href="ast_node.js.html#sunlight-1-line-11">line 11</a>
 			</li>
 		</ul>
 	</dd>
@@ -531,42 +388,6 @@
 	
 </dl>
 
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <p>An array containing the ast</p>
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Array</span>
-
-
-
-    </dd>
-</dl>
-
-
-        
 
     
 </dd>
@@ -574,74 +395,25 @@
         
             
 <hr>
-<dt>
-    <h4 class="name" id="parseTextNode"><span class="type-signature"></span>parseTextNode(str)</h4>
-    
+<dt class="name" id="nodes">
+    <h4><span class="type-signature"></span>nodes<span class="type-signature"> :Array.&lt;<a href="Node.html">Node</a>></span></h4>
+
     
 </dt>
 <dd>
-
-    
-    <div class="description">
-        <p>Parses a DOM text node value into a MCDOM hierarchy</p>
-    </div>
     
 
     
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>str</code></td>
-            
-
-            <td class="type">
-            
+        <h5>Type:</h5>
+        <ul>
+            <li>
                 
-<span class="param-type">string</span>
+<span class="param-type">Array.&lt;<a href="Node.html">Node</a>></span>
 
 
 
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
+            </li>
+        </ul>
     
 
     
@@ -679,8 +451,8 @@
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="mc-parser.js.html">mc-parser.js</a>,
-				 <a href="mc-parser.js.html#sunlight-1-line-44">line 44</a>
+				<a href="ast_node.js.html">ast/node.js</a>,
+				 <a href="ast_node.js.html#sunlight-1-line-17">line 17</a>
 			</li>
 		</ul>
 	</dd>
@@ -691,55 +463,15 @@
 	
 
 	
-	<dt class="tag-todo method-doc-label method-doc-details-label">To Do:</dt>
-	<dd class="tag-todo">
-		<ul>
-			<li>Write unit test</li>
-			</ul>
-	</dd>
-	
 </dl>
 
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Object</span>
-|
-
-<span class="param-type">Array.&lt;Object></span>
-
-
-
-    </dd>
-</dl>
-
-
-        
 
     
 </dd>
 
         </dl>
+    
+
     
 
     
@@ -791,7 +523,7 @@
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a>
 	
-		on Sat Feb 6th 2016
+		on Tue Feb 9th 2016
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>
