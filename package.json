@@ -6,6 +6,7 @@
   "scripts": {
     "test": "node_modules/.bin/mocha",
     "cover": "node_modules/.bin/istanbul cover node_modules/.bin/_mocha",
+    "cover-view": "sensible-browser coverage/lcov-report/index.html",
     "docs": "node_modules/.bin/jsdoc -c ./jsdoc.conf.json -t ./node_modules/ink-docstrap/template -r node_modules/src -d documentation",
     "docs-publish": "git subtree push --prefix documentation origin gh-pages"
   },

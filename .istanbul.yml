@@ -1,6 +1,6 @@
 instrumentation:
   default-excludes: false
-  excludes: ["**/node_modules/!(src)/**"]
+  excludes: ["**/node_modules/!(src)/**", "**/test/**"]
   compact: false
   save-baseline: true
 reporting:
