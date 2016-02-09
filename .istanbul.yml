@@ -1,0 +1,10 @@
+instrumentation:
+  default-excludes: false
+  excludes: ["**/node_modules/!(src)/**"]
+  compact: false
+  save-baseline: true
+reporting:
+  dir: ./coverage
+  print: summary
+  reports:
+    - lcov
