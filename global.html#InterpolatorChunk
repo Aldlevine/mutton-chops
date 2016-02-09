@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>DocStrap Source: ast/tag-directive.js</title>
+	<title>DocStrap Class: InterpolatorChunk</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -39,7 +39,14 @@
 			<li class="dropdown">
 				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="Assembler.html">Assembler</a></li><li><a href="AST.Attrib.html">AST.Attrib</a></li><li><a href="AST.AttribDirective.html">AST.AttribDirective</a></li><li><a href="AST.Interpolator.html">AST.Interpolator</a></li><li><a href="AST.InterpolatorChunk.html">AST.InterpolatorChunk</a></li><li><a href="AST.InterpolatorExpression.html">AST.InterpolatorExpression</a></li><li><a href="AST.InterpolatorString.html">AST.InterpolatorString</a></li><li><a href="AST.Node.html">AST.Node</a></li><li><a href="AST.Tag.html">AST.Tag</a></li><li><a href="AST.TagDirective.html">AST.TagDirective</a></li><li><a href="AST.Text.html">AST.Text</a></li><li><a href="CharBuf.html">CharBuf</a></li><li><a href="Compiler.html">Compiler</a></li><li><a href="DomHandler.html">DomHandler</a></li><li><a href="MuttonChops.html">MuttonChops</a></li><li><a href="Parser.html">Parser</a></li>
+					<li><a href="Assembler.html">Assembler</a></li><li><a href="global.html#Attrib">Attrib</a></li><li><a href="AttribDirective.html">AttribDirective</a></li><li><a href="CharBuf.html">CharBuf</a></li><li><a href="Compiler.html">Compiler</a></li><li><a href="DomHandler.html">DomHandler</a></li><li><a href="Interpolator.html">Interpolator</a></li><li><a href="global.html#InterpolatorChunk">InterpolatorChunk</a></li><li><a href="InterpolatorExpression.html">InterpolatorExpression</a></li><li><a href="InterpolatorString.html">InterpolatorString</a></li><li><a href="MuttonChops.html">MuttonChops</a></li><li><a href="Node.html">Node</a></li><li><a href="Parser.html">Parser</a></li><li><a href="Tag.html">Tag</a></li><li><a href="TagDirective.html">TagDirective</a></li><li><a href="Text.html">Text</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="global.html#%257B@link">{@link</a></li>
 				</ul>
 			</li>
 			
@@ -64,38 +71,264 @@
 <div class="row">
 
 	
-	<div class="col-md-12">
+	<div class="col-md-8">
 	
 		<div id="main">
 			
 
-		<h1 class="page-title">Source: ast/tag-directive.js</h1>
-    
+	<h1 class="page-title">Class: InterpolatorChunk</h1>
 <section>
-    <article>
-        <pre
-            class="sunlight-highlight-javascript linenums">var Tag = require('src/ast/tag')
-;
 
-/**
- * A tag based directive
- * @class TagDirective
- * @extends Tag
- * @memberof AST
- * @param  {Object} opts - The tag directive options
- */
-var TagDirective = module.exports = function TagDirective(opts)
-{
-  if(!(this instanceof TagDirective))
-    return new TagDirective(opts);
+<header>
+    
+        <h2>
+        InterpolatorChunk
+        </h2>
+        
+    
+</header>
 
-  Tag.call(this, opts);
-}
-TagDirective.prototype = Object.create(Tag.prototype);
-</pre>
-    </article>
+
+<article>
+    <div class="container-overview">
+    
+        
+<hr>
+<dt>
+    <h4 class="name" id="InterpolatorChunk"><span class="type-signature"></span>new InterpolatorChunk(opts)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>opts</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The interpolator chunk options</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ast_interpolator-chunk.js.html">ast/interpolator-chunk.js</a>,
+				 <a href="ast_interpolator-chunk.js.html#sunlight-1-line-1">line 1</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Members</h3>
+
+        <dl>
+            
+<hr>
+<dt class="name" id="data">
+    <h4><span class="type-signature"></span>data<span class="type-signature"> :string</span></h4>
+
+    
+</dt>
+<dd>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">string</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="ast_interpolator-chunk.js.html">ast/interpolator-chunk.js</a>,
+				 <a href="ast_interpolator-chunk.js.html#sunlight-1-line-10">line 10</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        </dl>
+    
+
+    
+
+    
+
+    
+</article>
+
 </section>
-
 
 
 
@@ -105,6 +338,10 @@ TagDirective.prototype = Object.create(Tag.prototype);
 
 	<div class="clearfix"></div>
 
+	
+		<div class="col-md-3">
+			<div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md"></div>
+		</div>
 	
 
 </div>

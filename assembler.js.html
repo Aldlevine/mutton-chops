@@ -39,7 +39,7 @@
 			<li class="dropdown">
 				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="Assembler.html">Assembler</a></li><li><a href="Attrib.html">Attrib</a></li><li><a href="AttribDirective.html">AttribDirective</a></li><li><a href="CharBuf.html">CharBuf</a></li><li><a href="Compiler.html">Compiler</a></li><li><a href="DomHandler.html">DomHandler</a></li><li><a href="Interpolator.html">Interpolator</a></li><li><a href="InterpolatorChunk.html">InterpolatorChunk</a></li><li><a href="InterpolatorExpression.html">InterpolatorExpression</a></li><li><a href="InterpolatorString.html">InterpolatorString</a></li><li><a href="MuttonChops.html">MuttonChops</a></li><li><a href="Node.html">Node</a></li><li><a href="Parser.html">Parser</a></li><li><a href="Tag.html">Tag</a></li><li><a href="TagDirective.html">TagDirective</a></li><li><a href="Text.html">Text</a></li>
+					<li><a href="Assembler.html">Assembler</a></li><li><a href="AST.Attrib.html">AST.Attrib</a></li><li><a href="AST.AttribDirective.html">AST.AttribDirective</a></li><li><a href="AST.Interpolator.html">AST.Interpolator</a></li><li><a href="AST.InterpolatorChunk.html">AST.InterpolatorChunk</a></li><li><a href="AST.InterpolatorExpression.html">AST.InterpolatorExpression</a></li><li><a href="AST.InterpolatorString.html">AST.InterpolatorString</a></li><li><a href="AST.Node.html">AST.Node</a></li><li><a href="AST.Tag.html">AST.Tag</a></li><li><a href="AST.TagDirective.html">AST.TagDirective</a></li><li><a href="AST.Text.html">AST.Text</a></li><li><a href="CharBuf.html">CharBuf</a></li><li><a href="Compiler.html">Compiler</a></li><li><a href="DomHandler.html">DomHandler</a></li><li><a href="MuttonChops.html">MuttonChops</a></li><li><a href="Parser.html">Parser</a></li>
 				</ul>
 			</li>
 			
@@ -92,7 +92,11 @@ var Assembler = module.exports = function Assembler(opts)
 }
 
 Assembler.prototype.assemble = function (ast) {
-  this._assembleNodes(ast);
+  var ret = '';
+
+  ret += this._assembleNodes(ast);
+
+  return ret;
 };
 
 Assembler.prototype._assembleNodes = function (ast) {
@@ -116,6 +120,10 @@ Assembler.prototype._assembleNodes = function (ast) {
     }
   }
   return ret;
+};
+
+Assembler.prototype._assembleAttribs = function (node) {
+
 };
 
 Assembler.prototype._attribDirective = function () {
